@@ -23,7 +23,7 @@ function convertToRoman(num) {
     if (str.length < 4) {
       return str.split('');
     } else {
-      return str.slice(0, 3).split('').concat(str.slice(3));
+      return str.slice(0, 3).split('').reverse().concat(str.slice(3));
     }
   }
 
