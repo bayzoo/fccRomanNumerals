@@ -17,9 +17,12 @@ function convertToRoman(num) {
      { "0" : "", "1" : "C", "2" : "CC", "3" : "CCC", "4" : "CD", "5" : "D", "6" : "DC", "7" : "DCC", "8" : "DCCC", "9" : "CM" }
  ];
  let stringArray = num.toString().split('').reverse();
+
+ return stringArray.map((value, index) => objArr[index][value]).reverse().join('');
+
 }
 
-convertToRoman(36);
+console.log(convertToRoman(36));
 
 
 
