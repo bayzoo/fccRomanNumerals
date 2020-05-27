@@ -17,17 +17,14 @@ function convertToRoman(num) {
      { "0" : "", "1" : "C", "2" : "CC", "3" : "CCC", "4" : "CD", "5" : "D", "6" : "DC", "7" : "DCC", "8" : "DCCC", "9" : "CM" },
      { thousands : x => x < 1 ? "" : "M" + objArr[3].thousands(x - 1) }
   ];
-  let numStr = num.toString();
+  let strArr = num.toString().split('').reverse();
 
-  let strArr = function(str) {
-    if (str.length < 4) {
-      return str.split('');
-    } else {
-      return str.slice(0, 3).split('').reverse().concat(str.slice(3));
-    }
-  }
+  let splStrArr = strArr.splice(3).join('');
 
-  return strArr(numStr).reverse();
+  strArr = strArr.concat(splStrArr);
+
+  return strArr;
+
 
   stringArray.map((value, index) => objArr[index][value]).reverse().join('');
 }
