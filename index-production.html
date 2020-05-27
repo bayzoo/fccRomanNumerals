@@ -17,11 +17,12 @@ function convertToRoman(num) {
      { "0" : "", "1" : "C", "2" : "CC", "3" : "CCC", "4" : "CD", "5" : "D", "6" : "DC", "7" : "DCC", "8" : "DCCC", "9" : "CM" },
      { thousands : x => x < 1 ? "" : "M" + objArr[3].thousands(x - 1) }
   ];
-  let stringArray = num.toString().split('').reverse();
+  let numStr = num.toString();
+
  
   stringArray.map((value, index) => objArr[index][value]).reverse().join('');
 }
-"goose"
+
 console.log(convertToRoman(36));
 
 
