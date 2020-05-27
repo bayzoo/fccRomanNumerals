@@ -11,13 +11,14 @@
 "use strict";
 
 function convertToRoman(num) {
-
   let strArr = function(str) {
-    if (str.length > 4) {
+    if (str.length < 4) {
       return str.split('');
+    } else {
+      return;
     }
   }
-  return strArr("Goose");
+  return strArr("10090")
 }
 
 console.log(convertToRoman(400));

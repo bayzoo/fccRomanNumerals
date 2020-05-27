@@ -19,11 +19,20 @@ function convertToRoman(num) {
   ];
   let numStr = num.toString();
 
- 
+  let strArr = function(str) {
+    if (str.length < 4) {
+      return str.split('');
+    } else {
+      return str.slice(0, 3).split('').concat(str.slice(3));
+    }
+  }
+
+  return strArr(numStr).reverse();
+
   stringArray.map((value, index) => objArr[index][value]).reverse().join('');
 }
 
-console.log(convertToRoman(36));
+console.log(convertToRoman(33600));
 
 
 
