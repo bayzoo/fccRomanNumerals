@@ -11,23 +11,25 @@
 "use strict";
 
 function convertToRoman(num) {
+  //set key value pairs for roman numerals and digits
   let objArr = [
      { "0" : "", "1" : "I", "2" : "II", "3" : "III", "4" : "IV", "5" : "V", "6" : "VI", "7" : "VII", "8" : "VIII", "9" : "IX" },
      { "0" : "", "1" : "X", "2" : "XX", "3" : "XXX", "4" : "XL", "5" : "L", "6" : "LX", "7" : "LXX", "8" : "LXXX", "9" : "XC" },
      { "0" : "", "1" : "C", "2" : "CC", "3" : "CCC", "4" : "CD", "5" : "D", "6" : "DC", "7" : "DCC", "8" : "DCCC", "9" : "CM" },
      { thousands : x => x < 1 ? "" : "M" + objArr[3].thousands(x - 1) }
   ];
+  //convert num to an arr of strings reversed
   let strArr = num.toString().split('').reverse();
-
+  //handler if num is greater than 1000
   if (strArr.length > 3) {
     let splStrArr = strArr.splice(3).join('');
     strArr = strArr.concat(splStrArr);
   };
-
-  return strArr.map((value, index) => {
-    return index === 3 ?
-      objArr[index].thousands(parseInt(value)) :
-      objArr[index][value];
+  //use map to loop through the array to return a new array with the RMs, which is then reversed and joined
+  return strArr.map((x, y) => {
+    return y === 3 ?
+      objArr[y].thousands(parseInt(x)) :
+      objArr[y][x];
     }).reverse().join('');
 }
 
