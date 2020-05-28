@@ -18,21 +18,20 @@ function convertToRoman(num) {
      { thousands : x => x < 1 ? "" : "M" + objArr[3].thousands(x - 1) }
   ];
   let strArr = num.toString().split('').reverse();
+
   if (strArr.length > 3) {
     let splStrArr = strArr.splice(3).join('');
     strArr = strArr.concat(splStrArr);
   };
 
   return strArr.map((value, index) => {
-    if (index === 3) {
-      return objArr[index].thousands(parseInt(value));
-    } else {
+    return index === 3 ?
+      objArr[index].thousands(parseInt(value)) :
       objArr[index][value];
-    }
     }).reverse().join('');
 }
 
-console.log(convertToRoman(360));
+console.log(convertToRoman(2));
 
 
 
